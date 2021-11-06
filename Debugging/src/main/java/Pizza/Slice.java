@@ -4,10 +4,10 @@ package Pizza;
  */
 public class Slice {
 
-    public int calories = 0;
+    public double calories = 0;
 
-    public Slice(int calories){
-        calories = calories;
+    public Slice(double calories) {
+        this.calories = calories;
     }
 
 }

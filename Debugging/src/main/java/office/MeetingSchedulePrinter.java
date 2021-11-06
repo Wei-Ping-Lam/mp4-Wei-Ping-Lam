@@ -4,9 +4,7 @@ import org.joda.time.LocalDate;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
+import java.util.*;
 
 /**
  * User: sameer
@@ -32,18 +30,29 @@ public class MeetingSchedulePrinter {
     }
 
     private String buildMeetingScheduleString(MeetingsSchedule meetingsScheduleBooked) {
-        StringBuilder sb = new StringBuilder();
-        for (Map.Entry<LocalDate, Set<Meeting>> meetingEntry : meetingsScheduleBooked.getMeetings().entrySet()) {
-            LocalDate meetingDate = meetingEntry.getKey();
-            sb.append(dateFormatter.print(meetingDate)).append("\n");
-            Set<Meeting> meetings = meetingEntry.getValue();
-            for (Meeting meeting : meetings) {
-                sb.append(timeFormatter.print(meeting.getStartTime())).append(" ");
-                sb.append(timeFormatter.print(meeting.getFinishTime())).append(" ");
-                sb.append(meeting.getEmployeeId()).append("\n");
+        Map<LocalDate, Set<Meeting>> meetings2 = meetingsScheduleBooked.getMeetings();
+        List<LocalDate> dates = new ArrayList<>();
+        for(Map.Entry<LocalDate, Set<Meeting>> meetingEntry : meetings2.entrySet()) {
+            if(!dates.contains(meetingEntry.getKey())) {
+                dates.add(meetingEntry.getKey());
             }
-
         }
+        Collections.sort(dates);
+        StringBuilder sb = new StringBuilder();
+        for(LocalDate meetingDate : dates) {
+            for (Map.Entry<LocalDate, Set<Meeting>> meetingEntry : meetings2.entrySet()) {
+                if (meetingDate.equals(meetingEntry.getKey())) {
+                    sb.append(dateFormatter.print(meetingDate)).append("\n");
+                    Set<Meeting> meetings = meetingEntry.getValue();
+                    for (Meeting meeting : meetings) {
+                        sb.append(timeFormatter.print(meeting.getStartTime())).append(" ");
+                        sb.append(timeFormatter.print(meeting.getFinishTime())).append(" ");
+                        sb.append(meeting.getEmployeeId()).append("\n");
+                    }
+                }
+            }
+        }
+
         return sb.toString();
     }
 }

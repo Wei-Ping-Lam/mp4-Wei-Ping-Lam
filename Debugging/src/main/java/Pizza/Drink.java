@@ -3,12 +3,12 @@ package Pizza;
  * Created by Felix on 23.02.2016.
  */
 public enum Drink {
-        BEER (310) ,
-        BIRTHDAYSHOT (280);
+        BEER(310.0) ,
+        BIRTHDAYSHOT(280.0);
 
-        public final int calories;
+        public final double calories;
 
-        Drink(int calories){
+        Drink(double calories) {
             this.calories = calories;
         }
 }

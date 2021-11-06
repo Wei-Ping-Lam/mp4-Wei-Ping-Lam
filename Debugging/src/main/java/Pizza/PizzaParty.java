@@ -13,9 +13,9 @@ public class PizzaParty {
     public Stack beers = new Stack();
     public List<Guest> guests;
     //how many calories were consumend?
-    public int consumedCalories;
+    public double consumedCalories;
     //how many calories did the host provide?
-    public int providedCalories;
+    public double providedCalories;
 
     public PizzaParty(int nrOfGuests, Topping pizzaTopping, int nrOfBeers){
         //add all groceries to list of provided calories
@@ -23,7 +23,7 @@ public class PizzaParty {
 
         //invite guests
         guests = new ArrayList<Guest>();
-        for (int i = 1; i < nrOfGuests; i++){
+        for (int i = 0; i < nrOfGuests; i++){
             guests.add(new Guest(Util.NAMES[i]));
         }
 
@@ -41,10 +41,18 @@ public class PizzaParty {
     }
 
     public void startTheFeast(){
-        //eat pizza and drink beer
-        for (Guest guest : guests){
+        //eat pizza
+        for (Guest guest : guests) {
             guest.takeSlice(pizza);
-            guest.drink(beers);
+        }
+
+        //drink beer
+        while (!beers.isEmpty()) {
+            for (Guest guest : guests) {
+                if (!beers.isEmpty()) {
+                    guest.drink(beers);
+                }
+            }
         }
 
         //give special birthday shot to host

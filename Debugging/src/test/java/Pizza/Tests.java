@@ -11,62 +11,71 @@ public class Tests {
     public void test1(){
         PizzaParty party = new PizzaParty(4,Topping.DIETPILLS,4);
         party.startTheFeast();
-        Assert.assertTrue(party.consumedCalories == party.providedCalories);
+        Assert.assertEquals(party.providedCalories, party.consumedCalories, Math.pow(10.0, -5));
+        //Assert.assertTrue(party.consumedCalories == party.providedCalories);
     }
 
     @Test
     public void test2(){
         PizzaParty party = new PizzaParty(4,Topping.SALAMI,4);
         party.startTheFeast();
-        Assert.assertTrue(party.consumedCalories == party.providedCalories);
+        Assert.assertEquals(party.providedCalories, party.consumedCalories, Math.pow(10.0, -5));
+        //Assert.assertTrue(party.consumedCalories == party.providedCalories);
     }
 
     @Test
     public void test3(){
         PizzaParty party = new PizzaParty(4,Topping.DIETPILLS,7);
         party.startTheFeast();
-        Assert.assertTrue(party.consumedCalories == party.providedCalories);
+        Assert.assertEquals(party.providedCalories, party.consumedCalories, Math.pow(10.0, -5));
+        //Assert.assertTrue(party.consumedCalories == party.providedCalories);
     }
 
     @Test
     public void test4(){
         PizzaParty party = new PizzaParty(7,Topping.PROSCIUTTO,7);
         party.startTheFeast();
-        Assert.assertTrue(party.consumedCalories == party.providedCalories);
+        Assert.assertEquals(party.providedCalories, party.consumedCalories, Math.pow(10.0, -5));
+        //Assert.assertTrue(party.consumedCalories == party.providedCalories);
     }
 
     @Test
     public void test5(){
         PizzaParty party = new PizzaParty(3,Topping.SALAMI,3);
         party.startTheFeast();
-        Assert.assertTrue(party.consumedCalories == party.providedCalories);
+        Assert.assertEquals(party.providedCalories, party.consumedCalories, Math.pow(10.0, -5));
+        //Assert.assertTrue(party.consumedCalories == party.providedCalories);
     }
 
     @Test
     public void test6(){
         PizzaParty party = new PizzaParty(3,Topping.SALAMI,2);
         party.startTheFeast();
-        Assert.assertTrue(party.consumedCalories == party.providedCalories);
+        Assert.assertEquals(party.providedCalories, party.consumedCalories, Math.pow(10.0, -5));
+        //Assert.assertTrue(party.consumedCalories == party.providedCalories);
     }
 
     @Test
     public void test7(){
         PizzaParty party = new PizzaParty(7,Topping.DIETPILLS,4);
         party.startTheFeast();
-        Assert.assertTrue(party.consumedCalories == party.providedCalories);
+        Assert.assertEquals(party.providedCalories, party.consumedCalories, Math.pow(10.0, -5));
+        //Assert.assertTrue(party.consumedCalories == party.providedCalories);
     }
 
     @Test
     public void test8(){
         PizzaParty party = new PizzaParty(9,Topping.DIETPILLS,4);
         party.startTheFeast();
-        Assert.assertTrue(party.consumedCalories == party.providedCalories);
+        Assert.assertEquals(party.providedCalories, party.consumedCalories, Math.pow(10.0, -5));
+        //Assert.assertTrue(party.consumedCalories == party.providedCalories);
     }
 
     @Test
     public void test9(){
         PizzaParty party = new PizzaParty(4,Topping.MARGHERITA,6);
         party.startTheFeast();
-        Assert.assertTrue(party.consumedCalories == party.providedCalories);
+        Assert.assertEquals(party.providedCalories, party.consumedCalories, Math.pow(10.0, -5));
+        //Assert.assertTrue(party.consumedCalories == party.providedCalories);
     }
 }

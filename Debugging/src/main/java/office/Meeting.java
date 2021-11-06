@@ -17,9 +17,9 @@ public class Meeting implements Comparable<Meeting>{
     private LocalTime finishTime;
 
     public Meeting(String employeeId, LocalTime startTime, LocalTime finishTime) {
-        employeeId = employeeId;
-        startTime = startTime;
-        finishTime = finishTime;
+        this.employeeId = employeeId;
+        this.startTime = startTime;
+        this.finishTime = finishTime;
     }
 
 

@@ -21,9 +21,9 @@ public class MeetingsSchedule {
     private Map<LocalDate, Set<Meeting>> meetings;
 
     public MeetingsSchedule(LocalTime officeStartTime, LocalTime officeFinishTime, Map<LocalDate, Set<Meeting>> meetings) {
-        officeStartTime = officeStartTime;
-        officeFinishTime = officeFinishTime;
-        meetings = meetings;
+        this.officeStartTime = officeStartTime;
+        this.officeFinishTime = officeFinishTime;
+        this.meetings = meetings;
     }
 
     public LocalTime getOfficeStartTime() {

@@ -8,15 +8,15 @@ import java.util.Stack;
 public class Pizza {
 
     public Stack slices;
-    public int calories;
+    public double calories;
 
-    public Pizza(Topping topping){
+    public Pizza(Topping topping) {
         this.calories = topping.calories;
     }
 
-    public void slice(int nrOfSlices){
+    public void slice(int nrOfSlices) {
         slices = new Stack();
-        for (int i = 0;i < nrOfSlices; i++){
+        for (int i = 0; i < nrOfSlices; i++){
             slices.push(new Slice(calories/nrOfSlices));
         }
     }
