@@ -70,7 +70,7 @@ public class MeetingScheduler {
             for(Meeting meeting : meetingsForDay) {
                 times.add(meeting.getStartTime());
             }
-            Collections.sort(times);
+            Collections.sort(times, Collections.reverseOrder());
             Set<Meeting> sortedMeetings = new HashSet<>();
             for(LocalTime time : times) {
                 for(Meeting meeting : meetingsForDay) {
@@ -83,8 +83,8 @@ public class MeetingScheduler {
             }
             //System.out.println(meetingEntry.getValue());
             //System.out.println(sortedMeetings);
-            meetingEntry.setValue(sortedMeetings);
-
+            //meetingEntry.setValue(sortedMeetings);
+            meetings.put(meetingEntry.getKey(), sortedMeetings);
         }
 
         return new MeetingsSchedule(officeStartTime, officeFinishTime, meetings);
